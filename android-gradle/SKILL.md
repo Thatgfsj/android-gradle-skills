@@ -1,6 +1,6 @@
 ---
 name: android-gradle
-description: Android app development with Gradle build system. Use when user wants to develop Android apps, create new projects, configure Gradle/AGP, build APKs, or troubleshoot build issues. Triggers: "开发安卓", "Android项目", "Gradle构建", "AGP", "Android Studio", "打包APK", "build.gradle", "kotlin-dsl".
+description: Android app development with Gradle build system. Use when user wants to develop Android apps, create new projects, configure Gradle/AGP, build APKs, or troubleshoot build issues. Also covers uni-app + HBuilderX + Gradle hybrid packaging workflow. Triggers: "开发安卓", "Android项目", "Gradle构建", "AGP", "Android Studio", "打包APK", "build.gradle", "kotlin-dsl", "HBuilderX", "uni-app", "云打包", "本地打包".
 ---
 
 # Android Gradle Skill
