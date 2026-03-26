@@ -119,7 +119,7 @@ dependencyResolutionManagement {{
 
 dependencyResolutionManagement {{
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {&
+    repositories {{
         google()
         mavenCentral()
     }}
@@ -148,7 +148,7 @@ kotlin.code.style=official
         f.write(gradle_props)
 
     # local.properties
-    local_props = """sdk.dir=H\\:\\\\Android_work\\\\Android\\\\new\\\\sdk
+    local_props = """sdk.dir=/path/to/your/android/sdk
 """
     with open(os.path.join(project_path, "local.properties"), "w", encoding="utf-8") as f:
         f.write(local_props)
