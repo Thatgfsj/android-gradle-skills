@@ -15,8 +15,21 @@ android-gradle/
 │   └── init_android_project.py           # 一键创建 Android 项目
 └── references/
     ├── agp-kts-templates.md             # Kotlin DSL build 文件模板
-    └── version-compat.md                 # AGP ↔ Gradle ↔ JDK 版本兼容性表
+    └── version-compat.md                # AGP ↔ Gradle ↔ JDK 版本兼容性表
 ```
+
+## 标准技术栈
+
+| 类别 | 技术 |
+|------|------|
+| **语言** | Kotlin |
+| **UI框架** | Jetpack Compose (Material 3) |
+| **最小SDK** | API 26 (Android 6.0) |
+| **目标SDK** | API 34 (Android 14) |
+| **架构** | 单模块 + Mock数据层（或 MVVM） |
+| **导航** | Navigation Compose |
+| **状态管理** | Kotlin StateFlow + MutableStateFlow |
+| **编译工具** | Gradle 8.2 + AGP 8.2.2 |
 
 ## 版本兼容性
 
@@ -35,13 +48,13 @@ android-gradle/
 ### 创建新项目
 
 ```bash
-python scripts/init_android_project.py MyApp /path/to/save 8.2.0 8.2
+python scripts/init_android_project.py MyApp /path/to/save 8.2.2 8.2
 ```
 
 这会生成完整的 Android 项目，包含：
 - Kotlin DSL 构建文件 (build.gradle.kts)
 - 配置好的 Gradle Wrapper
-- 最小化 MainActivity 和布局文件
+- Jetpack Compose + Material 3 主题模板
 - 正确的 AGP + Gradle 版本兼容性
 
 ### 构建 APK
@@ -52,43 +65,7 @@ cd /path/to/project
 ./gradlew assembleRelease  # Release APK
 ```
 
-## uni-app + HBuilderX + Gradle 打包流程
-
-适用于使用 uni-app 开发的项目，用 HBuilderX 编译前端，Gradle 打包 APK。
-
-### 流程概览
-
-```
-uni-app 源码 (Vue)
-        ↓  [HBuilderX 编译]
-dist/build/app/  (web 资源)
-        ↓  [替换到 Android 项目]
-Android Studio 项目 (HBuilder-Integrate-AS 模板)
-        ↓  [Gradle 打包]
-apk 文件
-```
-
-### 详细步骤
-
-**第一步：HBuilderX 编译 uni-app**
-```bash
-cd 项目目录
-npx uni build --platform app
-# 输出: dist/build/app/  (web 资源)
-```
-
-**第二步：替换 web 资源到 Android 项目**
-将编译输出复制到 `assets/apps/<appid>/www/` 目录。
-appid 从 `manifest.json` 中的 `id` 字段获取（格式 `__UNI__XXXXXXX`）。
-
-**第三步：Gradle 打包**
-```cmd
-set JAVA_HOME=<JDK17路径>
-set ANDROID_HOME=<Android SDK路径>
-gradle -p <Android项目目录> assembleDebug
-```
-
-### 触发词
+## 触发词
 
 以下词汇会触发此技能：
 - "开发安卓" / "Android项目"
@@ -96,7 +73,7 @@ gradle -p <Android项目目录> assembleDebug
 - "Android Studio配置"
 - "AGP版本" / "Gradle升级"
 - "build.gradle" / "kotlin-dsl"
-- "HBuilderX" / "uni-app"
+- "Jetpack Compose"
 
 ## 常见问题
 

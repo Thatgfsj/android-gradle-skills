@@ -6,56 +6,52 @@ OpenClaw skill for Android app development with Gradle build system.
 
 A skill for [OpenClaw](https://github.com/openclaw/openclaw) that provides Android development knowledge, including AGP/Gradle version compatibility, project templates, build automation scripts, and troubleshooting guides.
 
-## Contents
+## Standard Tech Stack
 
-```
-android-gradle/
-├── SKILL.md                              # Main skill file (triggers on Android development tasks)
-├── scripts/
-│   └── init_android_project.py           # One-command Android project generator
-└── references/
-    ├── agp-kts-templates.md             # Kotlin DSL build file templates
-    └── version-compat.md                 # AGP ↔ Gradle ↔ JDK compatibility table
-```
+| Category | Tech |
+|----------|------|
+| **Language** | Kotlin |
+| **UI Framework** | Jetpack Compose (Material 3) |
+| **Min SDK** | API 26 (Android 6.0) |
+| **Target SDK** | API 34 (Android 14) |
+| **Architecture** | Single module + Mock data (or MVVM) |
+| **Navigation** | Navigation Compose |
+| **State Management** | Kotlin StateFlow + MutableStateFlow |
+| **Build Tools** | Gradle 8.2 + AGP 8.2.2 |
 
 ## Version Compatibility
 
-| AGP | Gradle | JDK |
-|-----|--------|-----|
-| 8.2.x | 8.2 | JDK 17+ |
-| 8.3.x | 8.4+ | JDK 17+ |
-| 8.4.x | 8.6+ | JDK 17+ |
-| 8.5.x | 8.7+ | JDK 17+ |
-| 8.6.x | 8.7+ | JDK 17+ |
+| AGP | Gradle | JDK | Min Android SDK |
+|-----|--------|-----|----------------|
+| 8.2.x | 8.2 | JDK 17+ | API 21 |
+| 8.3.x | 8.4+ | JDK 17+ | API 24 |
+| 8.4.x | 8.6+ | JDK 17+ | API 24 |
+| 8.5.x | 8.7+ | JDK 17+ | API 24 |
+| 8.6.x | 8.7+ | JDK 17+ | API 24 |
 
 > **Important:** AGP 8.x requires JDK 17 or higher. JDK 8 will not work.
 
 ## Quick Start
 
-### Build an existing project
-
-```bash
-# Navigate to your Android project
-cd /path/to/project
-
-# Build debug APK
-./gradlew assembleDebug
-
-# Build release APK
-./gradlew assembleRelease
-```
-
 ### Create a new project
 
 ```bash
-python scripts/init_android_project.py MyApp /path/to/save 8.2.0 8.2
+python scripts/init_android_project.py MyApp /path/to/save 8.2.2 8.2
 ```
 
 This generates a complete Android project with:
 - Kotlin DSL build files (build.gradle.kts)
 - Gradle wrapper configured
-- Minimal `MainActivity` and layout
+- Jetpack Compose + Material 3 theme template
 - Proper AGP + Gradle version compatibility
+
+### Build APK
+
+```bash
+cd /path/to/project
+./gradlew assembleDebug    # Debug APK
+./gradlew assembleRelease  # Release APK
+```
 
 ## Skill Triggers
 
@@ -65,13 +61,15 @@ This skill activates when you say things like:
 - "Android Studio配置"
 - "AGP版本" / "Gradle升级"
 - "build.gradle" / "kotlin-dsl"
+- "Jetpack Compose"
 
 ## Setup Requirements
 
 1. **JDK 17+** — AGP 8.x will not work with JDK 8
+   - Local: `H:\Android_work\AS\jbr`
 2. **Android SDK** — Set in `local.properties`:
    ```
-   sdk.dir=/path/to/your/android/sdk
+   sdk.dir=H:\\Android_work\\Android\\new
    ```
 3. **Gradle** (optional, wrapper included):
    ```
