@@ -1,0 +1,16 @@
+[versions]
+agp = "8.7.0"
+kotlin = "2.0.20"
+sdk = "34"
+min-sdk = "26"
+target-sdk = "34"
+
+[libraries]
+androidx-core = { group = "androidx.core", name = "core-ktx", version = "1.13.1" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.9.3" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version = "2024.11.00" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

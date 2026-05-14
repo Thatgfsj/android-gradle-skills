@@ -1,0 +1,125 @@
+name: android-gradle-skills
+version: 1.0.0
+description: Android Gradle build system knowledge base with AGP/Gradle version compatibility, project templates, and build automation scripts
+triggers:
+  - "Android项目" / "创建Android项目"
+  - "Gradle构建" / "打包APK"
+  - "Android Studio问题"
+  - "AGP版本" / "Gradle版本"
+  - "build.gradle" / "kotlin-dsl"
+  - "Jetpack Compose"
+  - "Android构建优化"
+  - "Gradle依赖管理"
+  - "Version Catalogs"
+  - "Convention Plugins"
+
+capabilities:
+  - name: project-generation
+    description: Generate Android project templates with Kotlin DSL, Compose support, and version catalogs
+    scripts:
+      - path: android-gradle/scripts/init_android_project.py
+        args:
+          - app_name
+          - path
+          - agp_version
+          - gradle_version
+        flags:
+          - --use-kotlin-dsl
+          - --min-sdk
+          - --target-sdk
+          - --with-compose
+          - --multi-module
+          - --interactive
+
+  - name: dependency-management
+    description: Add and manage dependencies using Version Catalogs
+    scripts:
+      - path: android-gradle/scripts/ai/add-dependency.py
+        args:
+          - group
+          - artifact
+          - version
+
+  - name: module-creation
+    description: Create new Android library modules
+    scripts:
+      - path: android-gradle/scripts/ai/create-module.py
+        args:
+          - module_name
+
+  - name: build-execution
+    description: Safely execute Gradle tasks
+    scripts:
+      - path: android-gradle/scripts/ai/run-gradle-task.py
+        args:
+          - task
+
+  - name: build-optimization
+    description: Optimize Gradle build settings
+    scripts:
+      - path: android-gradle/scripts/ops/gradle-optimize.ps1
+
+  - name: ci-simulation
+    description: Simulate CI build locally
+    scripts:
+      - path: android-gradle/scripts/ops/run-ci-locally.ps1
+
+  - name: dependency-update
+    description: Update dependencies to latest versions
+    scripts:
+      - path: android-gradle/scripts/ops/update-dependencies.py
+
+references:
+  - path: android-gradle/references/build-basics.md
+    description: Gradle build fundamentals and build.gradle.kts configuration
+  - path: android-gradle/references/dependency-management.md
+    description: Version catalogs, implementation vs api, transitive dependencies
+  - path: android-gradle/references/build-variants.md
+    description: Build types, product flavors, variant filtering
+  - path: android-gradle/references/signing-and-release.md
+    description: Signing configuration, release builds, keystore management
+  - path: android-gradle/references/performance-optimization.md
+    description: Parallel builds, caching, configuration cache, JVM tuning
+  - path: android-gradle/references/troubleshooting.md
+    description: Common errors and solutions for AGP/Gradle issues
+  - path: android-gradle/references/ci-cd-integration.md
+    description: GitHub Actions and GitLab CI configuration examples
+
+examples:
+  - path: examples/basic-compose-app
+    description: Single module Compose app with minimal configuration
+  - path: examples/multi-module-clean
+    description: Multi-module architecture demonstrating Convention Plugins
+  - path: examples/dynamic-feature
+    description: Dynamic feature modules with on-demand delivery
+
+version_compatibility:
+  table:
+    - agp: "8.2.x"
+      gradle: "8.2"
+      jdk: "JDK 17+"
+      min_sdk: "API 21"
+    - agp: "8.3.x"
+      gradle: "8.4+"
+      jdk: "JDK 17+"
+      min_sdk: "API 24"
+    - agp: "8.4.x"
+      gradle: "8.6+"
+      jdk: "JDK 17+"
+      min_sdk: "API 24"
+    - agp: "8.5.x"
+      gradle: "8.7+"
+      jdk: "JDK 17+"
+      min_sdk: "API 24"
+    - agp: "8.6.x"
+      gradle: "8.7+"
+      jdk: "JDK 17+"
+      min_sdk: "API 24"
+    - agp: "8.7.x"
+      gradle: "8.10+"
+      jdk: "JDK 17+"
+      min_sdk: "API 24"
+
+license: MIT
+author: Thatgfsj
+homepage: https://github.com/Thatgfsj/android-gradle-skills
