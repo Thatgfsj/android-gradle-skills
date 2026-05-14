@@ -652,7 +652,7 @@ def main():
     download_gradle_wrapper(project_path, config["gradle_version"])
     create_root_build_gradle_kts(project_path, config["app_name"], config["agp_version"], config["kotlin_version"], config["use_kotlin_dsl"])
     create_settings_gradle_kts(project_path, use_version_catalogs=config["use_kotlin_dsl"])
-    create_gradleProperties(project_path)
+    create_gradle_properties(project_path)
     create_local_properties(project_path)
     create_gitignore(project_path)
     create_app_module(project_path, config["app_name"], config["min_sdk"], config["target_sdk"], config["kotlin_version"], config["use_compose"], config["use_kotlin_dsl"])

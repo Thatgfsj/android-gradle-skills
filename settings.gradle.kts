@@ -16,4 +16,3 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "android-gradle-skills"
-include(":android-gradle")

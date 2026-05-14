@@ -1,8 +1,6 @@
 package com.thatgfsj.plugins
 
 import com.android.build.api.dsl.ApplicationExtension
-import org.jetbrains.kotlin.gradle.dsl.KotlinAndroid
-import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.plugins.PluginManager
 
